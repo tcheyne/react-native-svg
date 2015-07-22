@@ -28,6 +28,10 @@ var Svg = React.createClass({
     LineSerializer: (line) => {
       var { x1, x2, y1, y2, style } = path.props;
       return `<path fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" d="${d}" transform="${transform}"/>`
+    },
+    PolygonSerializer: (polygon) => {
+      var { fill, stroke, strokeWidth, points, transform } = path.props;
+      return `<polygon fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" points="${points}" transform="${transform}"`
     }
   },
 
@@ -72,5 +76,6 @@ var Svg = React.createClass({
 
 var RNSvg = requireNativeComponent('RNSvg', null);
 Svg.Path = require('./Path');
+Svg.Polygon = require('./Polygon');
 
 module.exports = Svg;
